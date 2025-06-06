@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Karsten - Cama Mobile</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .banner-container {
+            width: 900px;
+            height: 1207px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0a1929 0%, #1565c0 60%, #29b6f6 100%);
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .banner-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-section {
+            flex: 1;
+            background-image: url('BannerCama.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50%;
+        }
+
+        .text-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 30px;
+            position: relative;
+            background: linear-gradient(180deg, rgba(10, 25, 41, 0.95) 0%, rgba(21, 101, 192, 0.9) 100%);
+            height: 50%;
+        }
+
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .cyber-tag {
+            background: linear-gradient(45deg, #1976d2, #42a5f5);
+            padding: 16px 36px;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 0 4px 20px rgba(25, 118, 210, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .karsten-logo-img {
+            height: 40px;
+            width: auto;
+            filter: brightness(1.2);
+        }
+
+        .main-title {
+            color: white;
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .discount {
+            color: #fff;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ffd54f, #ffeb3b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #00bcd4, #29b6f6);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 188, 212, 0.4);
+            background: linear-gradient(45deg, #0097a7, #1976d2);
+        }
+
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08;
+            z-index: 1;
+        }
+
+        .geometric-bg::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: -15%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #29b6f6 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .geometric-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            left: -15%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #00bcd4 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <div class="geometric-bg"></div>
+        
+        <div class="banner-content">
+            <div class="image-section">
+                <!-- Imagen de cama Karsten cargada desde BannerCama.jpg -->
+            </div>
+            
+            <div class="text-section">
+                <div class="brand-container">
+                    <div class="cyber-tag">Cyber</div>
+                    <img src="logoKarsten.png" alt="Karsten" class="karsten-logo-img">
+                </div>
+                <h2 class="main-title">En Ropa de Cama</h2>
+                <div class="discount">HASTA 50% OFF</div>
+                <p class="subtitle">Renueva tu descanso</p>
+                <button class="cta-button">Comprar Ahora</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Banner mobile sin funcionalidad de carousel
+    </script>
+</body>
+</html>

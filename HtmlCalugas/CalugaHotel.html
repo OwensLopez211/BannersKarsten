@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caluga Cyber Karsten - Hotel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .caluga-container {
+            width: 594px;
+            height: 488px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .caluga-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('BannerHotel.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 20px 24px;
+            z-index: 3;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            order: 3;
+        }
+
+        .cyber-tag {
+            background: linear-gradient(45deg, #1976d2, #42a5f5);
+            padding: 8px 16px;
+            border-radius: 18px;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            order: 1;
+            text-align: center;
+        }
+
+        .cyber-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .karsten-logo-img {
+            height: 24px;
+            width: auto;
+            filter: brightness(1.2);
+        }
+
+        .category-title {
+            color: white;
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            order: 2;
+        }
+
+        .discount {
+            position: relative;
+            font-size: 72px;
+            font-weight: 900;
+            margin: 12px 0;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            order: 1;
+            
+            /* Gradiente dorado brillante más intenso */
+            background: linear-gradient(135deg, 
+                #ffd700 0%, 
+                #ffed4e 15%, 
+                #fff59d 30%,
+                #fff176 45%, 
+                #ffeb3b 60%,
+                #ffc107 75%,
+                #ff8f00 90%,
+                #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            
+            /* Sombras múltiples más dramáticas */
+            filter: drop-shadow(0 3px 6px rgba(255, 215, 0, 0.4))
+                   drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5))
+                   drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3))
+                   drop-shadow(0 0 30px rgba(255, 215, 0, 0.2));
+            
+            /* Animaciones combinadas */
+            animation: glow 2s ease-in-out infinite alternate,
+                      gradientShift 4s ease-in-out infinite;
+            
+            /* Transformación en hover */
+            transition: transform 0.3s ease;
+        }
+
+        .discount:hover {
+            transform: scale(1.05);
+        }
+
+        .discount::before {
+            content: '2X1';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #ff8f00, #ffb300, #ffc107);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: blur(2px);
+            opacity: 0.7;
+        }
+
+
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            order: 3;
+        }
+
+        .geometric-accent {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(41, 182, 246, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 2;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .geometric-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(25, 118, 210, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+
+        @keyframes glow {
+            0% {
+                filter: drop-shadow(0 3px 6px rgba(255, 215, 0, 0.4))
+                       drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5))
+                       drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3))
+                       drop-shadow(0 0 30px rgba(255, 215, 0, 0.2));
+            }
+            100% {
+                filter: drop-shadow(0 6px 12px rgba(255, 215, 0, 0.7))
+                       drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5))
+                       drop-shadow(0 24px 48px rgba(0, 0, 0, 0.3))
+                       drop-shadow(0 0 60px rgba(255, 215, 0, 0.5))
+                       drop-shadow(0 0 80px rgba(255, 235, 59, 0.3));
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="caluga-container">
+        <div class="image-background"></div>
+        <div class="overlay"></div>
+        <div class="geometric-accent"></div>
+        
+        <div class="content">
+            <div class="brand-container">
+                <div class="cyber-tag">Cyber</div>
+                <img src="logoKarsten.png" alt="Karsten" class="karsten-logo-img">
+            </div>
+            
+            <div class="text-content">
+                <h3 class="category-title">Línea Hotel</h3>
+                <div class="discount">2X1</div>
+                <p class="subtitle">Calidad hotelera a tu hogar</p>
+            </div>
+        </div>        
+    </div>
+</body>
+</html>
